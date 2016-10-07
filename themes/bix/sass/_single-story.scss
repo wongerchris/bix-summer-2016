@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Single Story
+# Single Story Page
 --------------------------------------------------------------*/
 .single-story-site {
 	.stories-banner{
@@ -21,8 +21,8 @@
 		h2 {
 			font-size: 21px;
 			position: absolute;
-			top: 23px;
-			left: 10px;
+			top: 29px;
+			left: 20px;
 			font-weight:bold;
 			span{
 				font-weight: 300;
@@ -118,7 +118,7 @@
 
 // bottom toolbar
 	.bottom-toolbar-wrapper {
-		display: none;
+		display: flex;
 		transition: 0.3s;
 		position: fixed;
 		width: 100%;
@@ -137,7 +137,7 @@
 		width: 100%;
 		max-width: 1024px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 	}
 	.tools {
@@ -148,9 +148,18 @@
 		align-items: center;
 		i {
 			padding: 0 10px;
+			margin-right: 15px;
+			transition:transform .3s ease-in-out;
+		&:hover{
+			cursor: pointer;
+			color:$color__orange;
+			transform: rotateY(180deg);
+		}
+
 		}
 	}
 	.next-story {
+		display: none;
 		border-left: solid 1px $color__blue;
 		padding: 0 20px;
 		font-family: $font__header;
@@ -164,12 +173,13 @@
 			color: $color__blue;
 			&:hover {
 				color: $color__orange;
+				cursor: pointer;
 			}
 		}
 	}
 	.bottom-toolbar-wrapper-slide-up {
 		transition: 0.5s;
-		bottom: 50px;
+		bottom: 0px;
 	}
 
 // comment section
@@ -204,6 +214,14 @@
 
 
 // breakpoints
+@media all and (min-width: 550px) {
+	.next-story {
+		display: block;
+	}
+	.bottom-toolbar {
+		justify-content: space-between;
+	}
+}
 
 @media all and (min-width: 600px) {
 
@@ -222,11 +240,11 @@
 				left: -45px;
 			}
 			h2 {
-				font-size: 2.1rem;
+				font-size: 1.8rem;
 			}
 			h1.entry-title {
 				top: 60vh;
-				font-size: 2.2rem;
+				font-size: 1.8rem;
 				font-weight: bold;
 			}
 			img.wp-post-image {
@@ -281,7 +299,16 @@
 	}
 	.bottom-toolbar-wrapper {
 		display: flex;
+		.tools i {
+			margin-right: 30px;
+		}
 	}
 
+}
 
+@media all and (min-width: 900px) {
+	.bottom-toolbar-wrapper-slide-up {
+		transition: 0.5s;
+		bottom: 50px;
+	}
 }

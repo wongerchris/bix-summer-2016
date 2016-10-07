@@ -1,3 +1,7 @@
+/*--------------------------------------------------------------
+# Stories Page
+--------------------------------------------------------------*/
+
 /* ----------------- Top Section - Banner -------------*/
 .stories-banner{
 	display: flex;
@@ -6,7 +10,10 @@
 	align-items: center;
 	max-width: 100%;
 	.site-logo{
-		display: none;
+		visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
 	}	
 	.stories-header{
 		width: 80%;
@@ -150,14 +157,16 @@
     position: relative;
     margin-bottom: 50px;
     .site-logo{
-      display: unset;
+      visibility: visible;
+    	height: auto;
+    	width: 250px;
+    	overflow: auto;
       max-width: 250px;
     } 
     .stories-title {
       color:#fff;
       border-bottom: solid 2px #fff;
       border-top: solid 2px #fff;
-      font-size: 2rem;
       padding:10px 0;
       width: 250px;
       text-transform: capitalize;
@@ -197,7 +206,9 @@
 	}
 	.entry-content{
 		.stories-title{
-			font-size: 2rem;
+			a{
+				font-size: 2rem;
+			}
 		}
 	}
 }

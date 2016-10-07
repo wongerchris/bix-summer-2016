@@ -1,18 +1,19 @@
 /*!
-Theme Name: Bix Theme
+Theme Name: Bix
 Theme URI: http://underscores.me/
-Author: Mark, Mac, Wong
+Author: Mark, Mac, Chris
 Author URI: http://www.redacademy.com
-Description: Custom WordPress Theme for Bix
+Description: Custom WordPress Theme for "The Bix Book"
 Version: 1.0.0
+Text Domain: bix
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:
+
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-RED Starter Theme is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+The Bix Book theme is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -42,6 +43,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 # Page Templates
 	## Front page
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Global Mixins
 --------------------------------------------------------------*/
 html {
   font-family: sans-serif;
@@ -220,9 +224,6 @@ th {
   padding: 0; }
 
 /*--------------------------------------------------------------
-# Embedded Fonts
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
@@ -280,6 +281,9 @@ mark, ins {
 big {
   font-size: 125%; }
 
+/*--------------------------------------------------------------
+# Flickity Plugin
+--------------------------------------------------------------*/
 /*! Flickity v2.0.3
 http://flickity.metafizzy.co
 ---------------------------------------------- */
@@ -524,7 +528,7 @@ textarea {
         justify-content: space-between;
     border-bottom: solid 1px rgba(0, 0, 0, 0.2);
     position: fixed;
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
     z-index: 1;
     background: white; }
@@ -537,7 +541,8 @@ textarea {
     -ms-flex-align: center;
         align-items: center;
     -ms-flex-pack: center;
-        justify-content: center; }
+        justify-content: center;
+    margin-left: 10px; }
     .mobile-nav-wrapper .logo-link img {
       height: 25px; }
   .mobile-nav-wrapper .menu-button {
@@ -557,7 +562,8 @@ textarea {
         justify-content: center; }
     .mobile-nav-wrapper .menu-button-wrapper i {
       position: absolute;
-      top: 0; }
+      top: 0;
+      right: 10px; }
   .mobile-nav-wrapper i.fa-bars {
     color: #70b3cb; }
   .mobile-nav-wrapper i.fa-chevron-up {
@@ -581,7 +587,7 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50vw;
+    width: 75vw;
     list-style: none;
     text-align: right;
     background: white; }
@@ -909,6 +915,9 @@ object {
 .gallery-caption {
   display: block; }
 
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 * {
   box-size: border-box; }
 
@@ -920,7 +929,8 @@ object {
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+  min-width: 300px; }
 
 .site-main {
   width: 100%; }
@@ -936,10 +946,29 @@ object {
         align-items: center;
     margin: 0 auto; } }
 
-/*--------------------------------------------------------------
-# Page Templates
---------------------------------------------------------------*/
-/* Front page */
+#selectionSharerPopover-inner {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #70b3cb;
+  box-shadow: #70b3cb;
+  background: #70b3cb; }
+
+#selectionSharerPopover .selectionSharerPopover-arrow {
+  background-color: #70b3cb;
+  border: 2px solid #70b3cb; }
+
+#selectionSharerPopover:after {
+  background: #70b3cb;
+  box-shadow: 0 0 2px #70b3cb; }
+
+::-moz-selection {
+  background: #F9AC31;
+  color: #fff; }
+
+::selection {
+  background: #F9AC31;
+  color: #fff; }
+
 /*--------------------------------------------------------------
 # About Page
 --------------------------------------------------------------*/
@@ -951,9 +980,13 @@ object {
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+  height: 0; }
   .about-banner .site-logo, .about-banner .about-title, .about-banner p {
-    display: none; }
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden; }
   .about-banner .about-header {
     display: -ms-flexbox;
     display: flex;
@@ -975,7 +1008,6 @@ strong {
   color: #F9AC31; }
 
 .author-section {
-  min-width: 320px;
   display: block;
   width: 100%; }
 
@@ -990,7 +1022,7 @@ strong {
     text-align: center;
     font-family: "Titillium Web", sans-serif;
     color: #444444;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-transform: uppercase; }
 
 .author-section-intro {
@@ -1000,41 +1032,40 @@ strong {
       flex-flow: column nowrap;
   -ms-flex-align: center;
       align-items: center; }
-  .author-section-intro img {
-    max-width: 400px; }
   .author-section-intro p {
     font-family: "Titillium Web", sans-serif;
     margin: 1rem 2rem;
     text-align: center;
-    width: 100%; }
+    width: 100%;
+    padding: 0 10px; }
   .author-section-intro p:nth-child(2n) {
     font-style: italic; }
 
-.author-section-content-wrapper div {
-  margin: 0 2rem 1rem 2rem; }
-  .author-section-content-wrapper div h3 {
-    font-family: "Titillium Web", sans-serif;
-    color: #F9AC31;
-    text-transform: uppercase;
-    font-weight: 300; }
-  .author-section-content-wrapper div p {
-    font-weight: 300;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -ms-flex-pack: center;
-        justify-content: center;
-    display: block;
-    width: 100%; }
-    .author-section-content-wrapper div p span {
-      margin-bottom: 1rem; }
+.author-section-content-wrapper {
+  padding: 0 10px; }
+  .author-section-content-wrapper div {
+    margin: 0; }
+    .author-section-content-wrapper div h3 {
+      font-family: "Titillium Web", sans-serif;
+      color: #F9AC31;
+      text-transform: uppercase;
+      font-weight: 300; }
+    .author-section-content-wrapper div p {
+      font-weight: 300;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      -ms-flex-pack: center;
+          justify-content: center;
+      display: block;
+      width: 100%; }
+      .author-section-content-wrapper div p span {
+        margin-bottom: 1rem; }
 
 .company-section {
-  min-width: 320px;
-  display: block;
   width: 100%;
-  height: 100%; }
+  height: auto; }
 
 .company-section-title {
   position: relative;
@@ -1052,50 +1083,52 @@ strong {
     text-align: center;
     font-family: "Titillium Web", sans-serif;
     color: #444444;
-    font-size: 18px;
+    font-size: 1.5rem;
     text-transform: uppercase; }
 
-.company-section-content-wrapper div {
-  margin: 0 2rem 1rem 2rem; }
-  .company-section-content-wrapper div h3 {
-    font-family: "Titillium Web", sans-serif;
-    color: #F9AC31;
-    text-transform: uppercase;
-    font-weight: 300; }
-  .company-section-content-wrapper div ul {
-    margin-top: 0;
-    padding: 0 1rem;
-    font-weight: 300;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -ms-flex-pack: center;
-        justify-content: center;
-    list-style: none; }
-    .company-section-content-wrapper div ul li {
-      line-height: 1.2rem; }
-    .company-section-content-wrapper div ul li:before {
-      content: "";
-      border-color: transparent #F9AC31;
-      border-style: solid;
-      border-width: 0.35em 0 0.35em 0.45em;
-      display: block;
-      height: 0;
-      width: 0;
-      left: -1em;
-      top: 0.9em;
-      position: relative; }
-  .company-section-content-wrapper div p {
-    font-weight: 300;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -ms-flex-pack: center;
-        justify-content: center; }
-    .company-section-content-wrapper div p span {
-      margin-bottom: 1rem; }
+.company-section-content-wrapper {
+  padding: 0 10px; }
+  .company-section-content-wrapper div {
+    margin: 0; }
+    .company-section-content-wrapper div h3 {
+      font-family: "Titillium Web", sans-serif;
+      color: #F9AC31;
+      text-transform: uppercase;
+      font-weight: 300; }
+    .company-section-content-wrapper div ul {
+      margin-top: 0;
+      padding: 0 1rem;
+      font-weight: 300;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      -ms-flex-pack: center;
+          justify-content: center;
+      list-style: none; }
+      .company-section-content-wrapper div ul li {
+        line-height: 1.2rem; }
+      .company-section-content-wrapper div ul li:before {
+        content: "";
+        border-color: transparent #444444;
+        border-style: solid;
+        border-width: 0.35em 0 0.35em 0.45em;
+        display: block;
+        height: 0;
+        width: 0;
+        left: -1em;
+        top: 0.9em;
+        position: relative; }
+    .company-section-content-wrapper div p {
+      font-weight: 300;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      -ms-flex-pack: center;
+          justify-content: center; }
+      .company-section-content-wrapper div p span {
+        margin-bottom: 1rem; }
 
 .company-section-clients {
   margin: 1rem 2rem; }
@@ -1113,7 +1146,9 @@ strong {
       flex-flow: column nowrap;
   -ms-flex-align: center;
       align-items: center;
-  margin: 1rem 2rem; }
+  margin: 1rem 2rem;
+  height: 230px;
+  margin-bottom: 100px; }
   .company-section-website h3 {
     text-align: center;
     font-family: "Titillium Web", sans-serif;
@@ -1136,10 +1171,17 @@ strong {
     overflow: hidden;
     position: relative; }
     .about-banner .site-logo {
-      display: unset;
+      visibility: visible;
+      height: auto;
+      width: 250px;
+      overflow: hidden;
       max-width: 250px; }
     .about-banner .about-title {
-      display: unset;
+      visibility: visible;
+      height: auto;
+      width: 250px;
+      overflow: hidden;
+      max-width: 250px;
       color: #fff;
       border-bottom: solid 2px #fff;
       border-top: solid 2px #fff;
@@ -1150,23 +1192,31 @@ strong {
       font-weight: 500;
       text-align: center; }
     .about-banner p {
-      display: unset;
+      visibility: visible;
+      height: auto;
+      width: 250px;
+      overflow: hidden;
+      max-width: 250px;
       color: #fff;
-      font-weight: 300; }
+      font-weight: 300;
+      margin-top: 0;
+      text-align: center; }
   .about-page-banner {
     display: block; }
   .author-section, .company-section {
-    margin: 7rem 0; }
+    margin: 50px 0; }
   .author-section-intro img {
     -ms-flex-order: 2;
-        order: 2; }
+        order: 2;
+    max-width: 400px; }
   .author-section-intro p {
     -ms-flex-order: 1;
         order: 1; }
   .author-section-title {
     position: relative;
     background: url(../../images/about-bix-bickson.jpg);
-    background-size: cover; }
+    background-size: cover;
+    height: 550px; }
     .author-section-title img {
       display: block; }
     .author-section-title h2 {
@@ -1179,6 +1229,9 @@ strong {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-top: 0; } }
 
+/*--------------------------------------------------------------
+# Front Page
+--------------------------------------------------------------*/
 .home-banner {
   background: url(../../images/bix_book_homepage.jpg) no-repeat center top;
   background-size: cover;
@@ -1199,7 +1252,7 @@ strong {
     left: -9999px; }
 
 .banner-info-wrapper {
-  min-height: 430px;
+  min-height: 400px;
   margin-top: 20px;
   display: -ms-flexbox;
   display: flex;
@@ -1210,7 +1263,7 @@ strong {
   -ms-flex-align: center;
       align-items: center; }
   .banner-info-wrapper .site-logo {
-    max-width: 250px;
+    max-width: 150px;
     height: auto;
     margin-bottom: -10px;
     margin-top: 40px; }
@@ -1219,7 +1272,7 @@ strong {
     font-weight: bold;
     font-family: "Titillium Web", sans-serif;
     letter-spacing: 1px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #fff;
     margin-bottom: 15px; }
   .banner-info-wrapper .bix-book-subheading {
@@ -1237,6 +1290,7 @@ strong {
     background-color: #70b3cb;
     font-weight: 500;
     font-size: 1.1rem;
+    transition: all ease 0.4s;
     padding: 8px 46px;
     margin-bottom: 25px;
     font-weight: 300; }
@@ -1264,7 +1318,13 @@ strong {
 
 @media (min-width: 700px) {
   .home-banner {
-    background: url(../../images/bix_book_homepage_lg.jpg) no-repeat center top; } }
+    background: url(../../images/bix_book_homepage_lg.jpg) no-repeat center top; }
+  .banner-info-wrapper {
+    min-height: 400px; }
+    .banner-info-wrapper .site-logo {
+      max-width: 220px; }
+    .banner-info-wrapper .bix-book-title {
+      font-size: 1.8rem; } }
 
 @media (min-width: 1024px) {
   .banner-info-wrapper .site-logo {
@@ -1503,6 +1563,7 @@ strong {
     background-color: #70b3cb;
     font-weight: 500;
     font-size: 1.1rem;
+    transition: all ease 0.4s;
     padding: 8px 46px; }
     .sample-story-front .btn-download:hover {
       color: #70b3cb;
@@ -1588,7 +1649,8 @@ strong {
       line-height: 25px;
       margin-bottom: 0px;
       display: block;
-      max-width: 100%; }
+      max-width: 100%;
+      font-weight: 300; }
     .home-book .book-summary .btn-discover {
       color: #fff;
       text-decoration: none;
@@ -1597,6 +1659,7 @@ strong {
       background-color: #70b3cb;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: all ease 0.4s;
       padding: 10px 80px;
       margin-top: 20px; }
       .home-book .book-summary .btn-discover:hover {
@@ -1733,6 +1796,7 @@ strong {
       font-family: "Roboto", sans-serif;
       font-size: 1rem;
       line-height: 25px;
+      font-weight: 300;
       display: block;
       max-width: 100%; }
     .home-author .home-author-info .btn-explore {
@@ -1743,6 +1807,7 @@ strong {
       background-color: #70b3cb;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: all ease 0.4s;
       padding: 10px 80px; }
       .home-author .home-author-info .btn-explore:hover {
         color: #70b3cb;
@@ -1813,7 +1878,7 @@ strong {
         line-height: 28px; } }
 
 /*--------------------------------------------------------------
-# Single Story
+# Single Story Page
 --------------------------------------------------------------*/
 .single-story-site .stories-banner {
   display: none; }
@@ -1830,8 +1895,8 @@ strong {
     .single-story-container .entry-header h2 {
       font-size: 21px;
       position: absolute;
-      top: 23px;
-      left: 10px;
+      top: 29px;
+      left: 20px;
       font-weight: bold; }
       .single-story-container .entry-header h2 span {
         font-weight: 300; }
@@ -1914,7 +1979,8 @@ strong {
       background: #F9AC31; }
 
 .bottom-toolbar-wrapper {
-  display: none;
+  display: -ms-flexbox;
+  display: flex;
   transition: 0.3s;
   position: fixed;
   width: 100%;
@@ -1928,7 +1994,6 @@ strong {
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center; }
 
 .bottom-toolbar {
@@ -1937,8 +2002,8 @@ strong {
   max-width: 1024px;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-align: center;
       align-items: center; }
 
@@ -1952,9 +2017,16 @@ strong {
   -ms-flex-align: center;
       align-items: center; }
   .tools i {
-    padding: 0 10px; }
+    padding: 0 10px;
+    margin-right: 15px;
+    transition: transform .3s ease-in-out; }
+    .tools i:hover {
+      cursor: pointer;
+      color: #F9AC31;
+      transform: rotateY(180deg); }
 
 .next-story {
+  display: none;
   border-left: solid 1px #70b3cb;
   padding: 0 20px;
   font-family: "Titillium Web", sans-serif; }
@@ -1966,11 +2038,12 @@ strong {
     text-transform: uppercase;
     color: #70b3cb; }
     .next-story a:hover {
-      color: #F9AC31; }
+      color: #F9AC31;
+      cursor: pointer; }
 
 .bottom-toolbar-wrapper-slide-up {
   transition: 0.5s;
-  bottom: 50px; }
+  bottom: 0px; }
 
 .comment-section-border {
   display: -ms-flexbox;
@@ -2002,6 +2075,13 @@ strong {
     width: 100%;
     padding: 1rem 2rem; }
 
+@media all and (min-width: 550px) {
+  .next-story {
+    display: block; }
+  .bottom-toolbar {
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
+
 @media all and (min-width: 600px) {
   .single-story-site .stories-banner {
     display: -ms-flexbox;
@@ -2013,10 +2093,10 @@ strong {
       top: 50px;
       left: -45px; }
     .single-story-container .entry-header h2 {
-      font-size: 2.1rem; }
+      font-size: 1.8rem; }
     .single-story-container .entry-header h1.entry-title {
       top: 60vh;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: bold; }
     .single-story-container .entry-header img.wp-post-image {
       min-width: 100%; }
@@ -2056,9 +2136,19 @@ strong {
       width: 15vw; }
   .bottom-toolbar-wrapper {
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex; }
+    .bottom-toolbar-wrapper .tools i {
+      margin-right: 30px; } }
 
-/* ----------------- Top Section - Banner -------------*/
+@media all and (min-width: 900px) {
+  .bottom-toolbar-wrapper-slide-up {
+    transition: 0.5s;
+    bottom: 50px; } }
+
+/*--------------------------------------------------------------
+# Bix Book Page
+--------------------------------------------------------------*/
+/* -------------- Top Section - Banner -------------*/
 .bix-book-banner {
   display: -ms-flexbox;
   display: flex;
@@ -2069,7 +2159,10 @@ strong {
   -ms-flex-align: center;
       align-items: center; }
   .bix-book-banner .site-logo {
-    display: none; }
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden; }
 
 .the-bix-book-title {
   width: 100%;
@@ -2090,7 +2183,7 @@ strong {
   -ms-flex-pack: center;
       justify-content: center; }
 
-/* ----------------- Section 1 - Content -------------*/
+/* -------------- Section 1 - Content -------------*/
 .book-section1 {
   background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url(../../images/bix-book-banner-sm.jpg) no-repeat 20% top;
   background-size: cover;
@@ -2113,7 +2206,13 @@ strong {
     font-weight: 300; }
 
 .ribbon, .ribbon-heading {
-  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
   padding: 0; }
   .ribbon .book-section1-inside, .ribbon-heading .book-section1-inside {
     padding: 5px 20px;
@@ -2123,7 +2222,7 @@ strong {
     .ribbon .book-section1-inside p, .ribbon-heading .book-section1-inside p {
       font-weight: 300; }
 
-/* ----------------- Section 2 - Carousel -------------*/
+/* -------------- Section 2 - Carousel -------------*/
 .main-carousel {
   /* arrow color */
   /* hide disabled button */ }
@@ -2227,13 +2326,10 @@ strong {
       letter-spacing: 1.5px; }
       .book-purchase .book-purchase-info .book-buy-light span {
         color: #70b3cb; }
-    .book-purchase .book-purchase-info .fa-cc-paypal {
-      color: #253b80;
-      font-size: 2.5rem;
-      top: 20px;
-      vertical-align: text-middle;
+    .book-purchase .book-purchase-info .paypal {
       position: relative;
-      top: 10px; }
+      top: 5px;
+      width: 60px; }
     .book-purchase .book-purchase-info .donate-now {
       display: -ms-flexbox;
       display: flex;
@@ -2254,6 +2350,7 @@ strong {
       background-color: #70b3cb;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: all ease 0.4s;
       padding: 10px 30px;
       display: block;
       text-align: center;
@@ -2262,10 +2359,29 @@ strong {
         color: #70b3cb;
         border: solid #70b3cb 2px;
         background-color: #fff; }
+    .book-purchase .book-purchase-info .donate-later-button {
+      color: #fff;
+      text-decoration: none;
+      border: solid #fff 2px;
+      border-radius: 30px;
+      background-color: #70b3cb;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all ease 0.4s;
+      padding: 10px 30px;
+      display: block;
+      text-align: center;
+      width: 230px;
+      cursor: pointer; }
+      .book-purchase .book-purchase-info .donate-later-button:hover {
+        color: #70b3cb;
+        border: solid #70b3cb 2px;
+        background-color: #fff; }
     .book-purchase .book-purchase-info .book-or {
       font-weight: bold;
       margin-bottom: 0; }
 
+/* -------------- Breakpoints -------------*/
 @media (min-width: 600px) {
   .bix-book-banner {
     background: url(../../images/bix-book-banner-lg.jpg) no-repeat center left;
@@ -2274,7 +2390,10 @@ strong {
     overflow: hidden;
     position: relative; }
     .bix-book-banner .site-logo {
-      display: unset;
+      visibility: visible;
+      height: auto;
+      width: 250px;
+      overflow: auto;
       max-width: 250px; }
     .bix-book-banner .the-bix-book-title {
       color: #fff;
@@ -2314,12 +2433,17 @@ strong {
     margin-top: 50px;
     position: relative; }
     .book-section1 .ribbon {
-      display: unset;
+      visibility: visible;
+      height: 71px;
+      width: 315px;
+      overflow: auto;
       position: absolute;
       top: 35px;
       left: -45px; }
     .book-section1 .ribbon-heading {
-      display: unset;
+      height: 71px;
+      width: 315px;
+      visibility: visible;
       position: absolute;
       top: 23px;
       left: 23px;
@@ -2336,13 +2460,19 @@ strong {
     position: relative;
     margin-top: 50px; }
     .book-section2 .ribbon {
-      display: unset;
+      visibility: visible;
+      height: 71px;
+      width: 315px;
+      overflow: auto;
       position: absolute;
       top: 35px;
       left: -45px;
       z-index: 1; }
     .book-section2 .ribbon-heading {
-      display: unset;
+      visibility: visible;
+      height: 71px;
+      width: 315px;
+      overflow: auto;
       position: absolute;
       top: 23px;
       left: 23px;
@@ -2421,6 +2551,9 @@ strong {
   .book-purchase {
     width: 100%; } }
 
+/*--------------------------------------------------------------
+# Stories Page
+--------------------------------------------------------------*/
 /* ----------------- Top Section - Banner -------------*/
 .stories-banner {
   display: -ms-flexbox;
@@ -2433,7 +2566,10 @@ strong {
       align-items: center;
   max-width: 100%; }
   .stories-banner .site-logo {
-    display: none; }
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden; }
   .stories-banner .stories-header {
     width: 80%;
     display: -ms-flexbox;
@@ -2510,6 +2646,7 @@ strong {
       background-color: #70b3cb;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: all ease 0.4s;
       text-decoration: none;
       background-color: transparent;
       padding: 10px 20px;
@@ -2558,13 +2695,15 @@ strong {
     position: relative;
     margin-bottom: 50px; }
     .stories-banner .site-logo {
-      display: unset;
+      visibility: visible;
+      height: auto;
+      width: 250px;
+      overflow: auto;
       max-width: 250px; }
     .stories-banner .stories-title {
       color: #fff;
       border-bottom: solid 2px #fff;
       border-top: solid 2px #fff;
-      font-size: 2rem;
       padding: 10px 0;
       width: 250px;
       text-transform: capitalize;
@@ -2586,13 +2725,16 @@ strong {
     opacity: 1; }
     .stories-main:hover .entry-content .btn {
       opacity: 1; }
-  .entry-content .stories-title {
+  .entry-content .stories-title a {
     font-size: 2rem; } }
 
 @media (min-width: 1260px) {
   .stories-main {
     max-width: 1024px; } }
 
+/*--------------------------------------------------------------
+# Teaser Stories Page
+--------------------------------------------------------------*/
 .teaser-banner {
   display: -ms-flexbox;
   display: flex;
@@ -2618,7 +2760,7 @@ strong {
   max-width: 100%;
   margin: 50px 0; }
   .teaser-section1 .more-stories {
-    background: url(../../images/about-bickson2.png) no-repeat center left;
+    background: url(../../images/about-bickson2.jpg) no-repeat center left;
     background-size: cover;
     min-height: 500px;
     overflow: hidden;
@@ -2667,6 +2809,7 @@ strong {
       background-color: #70b3cb;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: all ease 0.4s;
       padding: 10px 30px;
       width: 250px;
       text-transform: uppercase;
@@ -2700,7 +2843,7 @@ strong {
 
 @media (min-width: 600px) {
   .teaser-banner {
-    background: url(../../images/teaser-stories-banner.png) no-repeat center left;
+    background: url(../../images/teaser-stories-banner.jpg) no-repeat center left;
     background-size: cover;
     height: 70vh;
     overflow: hidden;
@@ -2770,15 +2913,90 @@ strong {
         padding: 5px 20px;
         font-size: 1.5rem; } }
 
+/*--------------------------------------------------------------
+# Bix Book Page - Donation Process
+--------------------------------------------------------------*/
+.page-template-checkout article {
+  margin-top: 20px; }
+
+.page-template-checkout .donations {
+  max-width: 320px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 50px; }
+
+.page-template-checkout .the-bix-book {
+  max-width: 150px;
+  margin: 0 auto;
+  display: block; }
+
+.page-template-checkout .edd_empty_cart {
+  display: none; }
+
+.page-template-checkout .edd_price_options ul {
+  max-width: 175px;
+  margin: 0 auto; }
+
+.page-template-checkout button, .page-template-checkout input[type=button], .page-template-checkout input[type=reset], .page-template-checkout input[type=submit] {
+  text-shadow: none; }
+
+.page-template-checkout #edd-purchase-button, .page-template-checkout .edd-submit, .page-template-checkout input[type=submit].edd-submit {
+  color: #fff;
+  text-decoration: none;
+  border: solid #fff 2px;
+  border-radius: 30px;
+  background-color: #70b3cb;
+  font-weight: 500;
+  font-size: 1.1rem;
+  width: 150px;
+  transition: all ease 0.4s;
+  margin-bottom: 20px; }
+  .page-template-checkout #edd-purchase-button:hover, .page-template-checkout .edd-submit:hover, .page-template-checkout input[type=submit].edd-submit:hover {
+    color: #70b3cb;
+    border: solid #70b3cb 2px;
+    background-color: #fff; }
+
+.page-template-checkout .edd_purchase_submit_wrapper {
+  text-align: center; }
+
+.page-template-checkout .edd_download_file_link {
+  color: #F9AC31;
+  font-size: 2.2rem; }
+
+.page-template-checkout p {
+  color: #70b3cb; }
+
+@media (min-width: 600px) {
+  .page-template-checkout .donations {
+    max-width: 500px;
+    margin: 0 auto; } }
+
+@media (min-width: 700px) {
+  .page-template-checkout .donations {
+    max-width: 80%;
+    margin: 0 auto;
+    border: solid 1px #444444; }
+  .donate-title, p {
+    text-align: center; } }
+
+@media (min-width: 1024px) {
+  .page-template-checkout .donations {
+    max-width: 900px;
+    padding: 50px; } }
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 .footer-content-area {
   background-color: #444444;
   max-width: 100%;
   text-align: center;
   overflow: hidden;
-  min-height: 0px; }
+  min-height: 450px; }
 
 .footer-wrapper {
-  position: relative; }
+  position: relative;
+  min-height: 450px; }
 
 .footer-top {
   margin-left: 10%;
@@ -2798,20 +3016,41 @@ strong {
   color: #F9AC31;
   text-transform: uppercase; }
 
-.form-position input {
+.form-position form {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-align: center;
+      align-items: center; }
+  .form-position form label.error {
+    color: white;
+    margin-top: 10px; }
+  .form-position form .ajax-loader {
+    display: none; }
+
+.form-position .your-email, .form-position .your-message {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.form-position input.wpcf7-email {
   width: 80%;
   border: #F9AC31 solid 2px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   padding-left: 10px; }
 
-.form-position textarea {
-  margin-left: 1px;
+.form-position textarea.wpcf7-textarea {
   width: 80%;
   height: 40vh;
   border: #F9AC31 solid 2px;
-  padding-left: 10px; }
+  padding-left: 10px;
+  margin-top: 20px; }
 
-.footer_button {
+.form-position input.wpcf7-submit {
   color: #fff;
   text-decoration: none;
   border: solid #fff 2px;
@@ -2819,21 +3058,25 @@ strong {
   background-color: #70b3cb;
   font-weight: 500;
   font-size: 1.1rem;
-  font-size: 12px;
-  width: 100px;
-  padding: 5px;
+  transition: all ease 0.4s;
+  font-size: 1rem;
+  width: 180px;
+  padding: 10px;
+  margin-top: 10px;
   text-align: center;
   box-shadow: none;
   text-shadow: none; }
-  .footer_button:hover {
+  .form-position input.wpcf7-submit:hover {
     color: #70b3cb;
     border: solid #70b3cb 2px;
     background-color: #fff; }
+  .form-position input.wpcf7-submit:hover {
+    box-shadow: none;
+    text-shadow: none;
+    border: 2px solid #fff; }
 
-.footer_button:hover {
-  box-shadow: none;
-  text-shadow: none;
-  border: 2px solid #fff; }
+.form-position .wpcf7-response-output {
+  display: none !important; }
 
 .icons {
   display: -ms-flexbox;
@@ -2843,11 +3086,16 @@ strong {
   -ms-flex-pack: start;
       justify-content: flex-start;
   margin: 10px 0px 20px 10%; }
+  .icons a {
+    color: #444444; }
   .icons .fa-stack {
     font-size: 1.8rem; }
+    .icons .fa-stack:hover {
+      color: #70b3cb;
+      cursor: pointer; }
 
 .icon-background {
-  color: white; }
+  color: #fff; }
 
 .footer-orange {
   color: #F9AC31; }
@@ -2865,16 +3113,12 @@ strong {
     height: 40vh; }
   .icons {
     position: absolute;
-    bottom: 75px;
+    bottom: 100px;
     left: 30px; } }
 
 @media (min-width: 900px) {
   .icons {
-    left: 35px; }
-  .footer_button {
-    font-size: 1rem;
-    padding: 10px;
-    width: 185px; } }
+    left: 35px; } }
 
 @media (min-width: 1024px) {
   .footer-wrapper {
@@ -2883,133 +3127,15 @@ strong {
   .icons {
     left: 40px; } }
 
-/*====================================
-  Our Modal Window styles
-=====================================*/
-.modal {
-  text-transform: capitalize;
-  background: #fff;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  display: inline-block;
-  padding: 1em;
-  box-shadow: none;
-  text-shadow: none; }
-
-.modal > label {
-  background: #F9AC31;
-  border: 1px solid #f0c600;
-  border-radius: .2em;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.75em 1.5em;
-  transition: all 0.55s; }
-
-.modal > label:hover {
-  transform: scale(0.97); }
-
-.modal__overlay {
-  background: #F9AC31;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  text-shadow: none;
-  top: 0;
-  z-index: 600; }
-
-.modal__wrap {
-  position: relative;
-  margin: 20px auto;
-  max-width: 500px;
-  width: 90%; }
-
-.modal__wrap label {
-  background: #F9AC31;
-  border-radius: 50%;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  height: 1.5em;
-  line-height: 1.5;
-  position: absolute;
-  right: .5em;
-  top: .5em;
-  width: 1.5em; }
-
-.modal__wrap h2 {
-  text-transform: capitalize;
-  line-height: 50px;
-  color: white;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
-  text-transform: uppercase; }
-
-.modal__wrap-h5 {
-  text-transform: capitalize;
-  color: #FFFFFF;
-  text-align: center; }
-
-.modal input:focus ~ label {
-  transform: scale(0.97); }
-
-.model input {
-  display: none;
-  position: absolute;
-  top: -1000px; }
-
-.modal__overlay {
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: -100; }
-
-.modal input:checked ~ .modal__overlay {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 800; }
-
-.modal__trigger {
-  display: none; }
-
-.email-unlock {
-  width: 100%;
-  height: 11vh; }
-
-#modal-button {
-  margin-top: 50%;
-  margin-right: 23%;
-  color: #fff;
-  text-decoration: none;
-  border: solid #fff 2px;
-  border-radius: 30px;
-  background-color: #70b3cb;
-  font-weight: 500;
-  font-size: 1.1rem;
-  box-shadow: none;
-  text-shadow: none;
-  width: 50%; }
-
-#modal-button:hover {
-  text-shadow: none;
-  box-shadow: none;
-  background-color: #ffffff;
-  border: solid #70b3cb 2px;
-  color: #70b3cb; }
-
-.blue-books {
-  color: #70b3cb; }
-
 /*--------------------------------------------------------------
 # 404 page
 --------------------------------------------------------------*/
 .error-404 {
-  width: 80%;
+  width: 100%;
   padding: 3rem 4rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  margin: 4rem auto; }
+  margin: 4rem auto;
+  min-width: 320px; }
   .error-404 span {
     color: #F9AC31; }
 
@@ -3021,135 +3147,58 @@ strong {
   background-color: #70b3cb;
   font-weight: 500;
   font-size: 1.1rem;
-  padding: 10px 20px;
+  transition: all ease 0.4s;
+  font-size: .9rem;
+  padding: 10px 12px;
   text-transform: uppercase; }
   .btn-return:hover {
     color: #70b3cb;
     border: solid #70b3cb 2px;
     background-color: #fff; }
 
-.thank-you-title {
-  width: 100%;
-  text-align: center;
-  font-size: 21px;
-  position: absolute;
-  top: 43%;
-  font-weight: 400;
-  background: rgba(255, 255, 255, 0.8); }
-
-.icons-list li {
-  display: inline;
-  margin-right: 20px; }
-
-.p-margin {
-  margin-left: 20px; }
-
-.icon-size {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #F9AC31;
-  font-size: 50px;
-  line-height: 100px;
-  border: 7px solid #FFFFFF;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  /*font-size: 32px;
-  line-height: 67px;
-  border: 5px solid #FFFFFF;
-  border-radius: 60%;
-  width: 60px;
-  height: 69px; */
-  text-align: center;
-  vertical-align: bottom; }
-
-.icon-size:hover {
-  box-shadow: none;
-  text-shadow: none; }
-
-.thank-you-modal {
-  text-transform: capitalize;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  display: inline-block;
-  padding: 1em;
-  box-shadow: none;
-  text-shadow: none; }
-
-.thank-you-modal > label {
-  font-size: 2rem;
-  padding: 0 20px;
-  color: #70b3cb; }
-
-.thank-you-modal__overlay {
-  display: block;
-  background: #F9AC31;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  right: 0;
+/*--------------------------------------------------------------
+# Bix Book Page - Modals
+--------------------------------------------------------------*/
+.bix-book-modal-overlay {
+  display: none;
   position: fixed;
-  text-align: center;
-  text-shadow: none;
-  z-index: 600;
-  width: 100%; }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5; }
 
-.thank-you-modal__wrap {
-  position: relative;
-  margin: auto;
-  max-width: 500px;
-  width: 90%; }
+.bix-book-modal-container {
+  height: 100%;
+  width: 100%;
+  position: relative; }
 
-.thank-you-modal__wrap label {
-  background: #F9AC31;
-  border-radius: 50%;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  height: 1.5em;
-  line-height: 1.5;
-  position: absolute;
-  right: .5em;
-  top: .5em;
-  width: 1.5em; }
-
-.thank-you-modal__wrap h2 {
-  text-transform: capitalize;
-  line-height: 50px;
-  color: white;
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
-  text-transform: uppercase; }
-
-.thank-you-modal__wrap-h5 {
-  text-transform: capitalize;
-  color: #FFFFFF;
-  text-align: center; }
-
-.thank-you-modal input:focus ~ label {
-  transform: scale(0.97); }
-
-.thank-you-modal input {
+.unlock-download-modal, .start-download-modal, .thankyou-modal {
   display: none;
   position: absolute;
-  top: -1000px; }
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  padding: 0.5rem; }
+  .unlock-download-modal-wrapper, .start-download-modal-wrapper, .thankyou-modal-wrapper {
+    position: relative; }
+    .unlock-download-modal-wrapper i.download-fa-close, .start-download-modal-wrapper i.download-fa-close, .thankyou-modal-wrapper i.download-fa-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 1rem;
+      font-size: 1.5rem; }
+      .unlock-download-modal-wrapper i.download-fa-close:hover, .start-download-modal-wrapper i.download-fa-close:hover, .thankyou-modal-wrapper i.download-fa-close:hover {
+        cursor: pointer;
+        transform: scale(1.3); }
 
-.thank-you-modal__overlay {
-  opacity: 0;
-  transform: scale(1);
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: -100; }
-
-.thank-you-modal input:checked ~ .thank-you-modal__overlay {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 800; }
-
-.thank-you-modal__trigger {
-  display: none; }
-
-.thank-you-modal-button {
-  padding: 10px;
-  margin-top: 10px;
+.download-later-button {
+  cursor: pointer;
   color: #fff;
   text-decoration: none;
   border: solid #fff 2px;
@@ -3157,23 +3206,193 @@ strong {
   background-color: #70b3cb;
   font-weight: 500;
   font-size: 1.1rem;
-  box-shadow: none;
-  text-shadow: none;
-  width: 50%; }
+  transition: all ease 0.4s;
+  padding: 0.5rem 3rem; }
+  .download-later-button:hover {
+    color: #70b3cb;
+    border: solid #70b3cb 2px;
+    background-color: #fff; }
 
-.thank-you-modal-button:hover {
-  text-shadow: none;
-  box-shadow: none;
-  background-color: #ffffff;
-  border: solid #70b3cb 2px;
-  color: #70b3cb; }
+.unlock-download-modal {
+  background: white; }
+  .unlock-download-modal .unlock-download-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    width: 100%;
+    height: 100%; }
+  .unlock-download-modal h2 {
+    text-align: center;
+    color: #444444;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    border: 3px solid white;
+    border-width: 3px 0;
+    margin-bottom: 0; }
+  .unlock-download-modal p {
+    font-family: "Titillium Web", sans-serif;
+    color: #444444;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0.5rem; }
+  .unlock-download-modal form {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    max-width: 500px; }
+    .unlock-download-modal form p {
+      margin: 10px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap; }
+      .unlock-download-modal form p input {
+        border-radius: 0;
+        width: 100%; }
+    .unlock-download-modal form .wpcf7-submit {
+      color: #fff;
+      text-decoration: none;
+      border: solid #fff 2px;
+      border-radius: 30px;
+      background-color: #70b3cb;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all ease 0.4s;
+      box-shadow: none;
+      text-shadow: none;
+      padding: 0.5rem 3rem;
+      margin: 1rem;
+      height: 50px;
+      width: 230px; }
+      .unlock-download-modal form .wpcf7-submit:hover {
+        color: #70b3cb;
+        border: solid #70b3cb 2px;
+        background-color: #fff; }
 
+.start-download-modal {
+  background: white; }
+  .start-download-modal .start-download-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    width: 100%;
+    height: 100%; }
+  .start-download-modal h2 {
+    text-align: center;
+    color: #444444;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0; }
+  .start-download-modal p {
+    text-align: center;
+    font-family: "Titillium Web", sans-serif;
+    color: #444444;
+    font-size: 1.2rem; }
+    .start-download-modal p .blue-highlight {
+      color: #70b3cb;
+      font-weight: bold; }
+  .start-download-modal i.fa-download {
+    font-size: 4rem;
+    color: #70b3cb; }
+  .start-download-modal a.download-link {
+    color: #fff;
+    text-decoration: none;
+    border: solid #fff 2px;
+    border-radius: 30px;
+    background-color: #70b3cb;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all ease 0.4s;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0.5rem 3rem;
+    margin: 1rem; }
+    .start-download-modal a.download-link:hover {
+      color: #70b3cb;
+      border: solid #70b3cb 2px;
+      background-color: #fff; }
+
+.thankyou-modal {
+  background: url(../../images/thank-you-image.jpg);
+  background-position: right; }
+  .thankyou-modal .thankyou-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 100%;
+    height: 100%;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem; }
+  .thankyou-modal h2 {
+    text-align: center;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 2rem; }
+  .thankyou-modal p {
+    text-align: center;
+    font-family: "Titillium Web", sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    margin: 0; }
+  .thankyou-modal .thank-you-button {
+    color: #fff;
+    text-decoration: none;
+    border: solid #fff 2px;
+    border-radius: 30px;
+    background-color: #70b3cb;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all ease 0.4s;
+    padding: 0.5rem 3rem;
+    margin: 2rem;
+    cursor: pointer;
+    text-align: center; }
+    .thankyou-modal .thank-you-button:hover {
+      color: #70b3cb;
+      border: solid #70b3cb 2px;
+      background-color: #fff; }
+
+@media (max-width: 600px) {
+  .unlock-download-modal, .start-download-modal, .thankyou-modal {
+    width: 95%;
+    height: 90%;
+    padding: 1rem; }
+    .unlock-download-modal h2, .start-download-modal h2, .thankyou-modal h2 {
+      font-size: 1.5rem; } }
+
+/*--------------------------------------------------------------
+# Single Story Page - Modals
+--------------------------------------------------------------*/
 .single-story-modal-overlay {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5; }
@@ -3188,18 +3407,231 @@ strong {
   -ms-flex-align: center;
       align-items: center;
   position: relative; }
-  .single-story-modal-container .highlight-modal, .single-story-modal-container .comment-modal, .single-story-modal-container .download-modal {
-    display: none;
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    padding: 1rem; }
+
+.highlight-modal, .comment-modal, .download-modal {
+  display: none;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  padding: 1rem; }
+  .highlight-modal-wrapper, .comment-modal-wrapper, .download-modal-wrapper {
+    position: relative; }
+    .highlight-modal-wrapper i.single-fa-close, .comment-modal-wrapper i.single-fa-close, .download-modal-wrapper i.single-fa-close {
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 1rem;
+      font-size: 1.5rem; }
+      .highlight-modal-wrapper i.single-fa-close:hover, .comment-modal-wrapper i.single-fa-close:hover, .download-modal-wrapper i.single-fa-close:hover {
+        cursor: pointer;
+        transform: scale(1.3); }
 
 .highlight-modal {
-  background: #F9AC31; }
+  text-align: center;
+  background: #70b3cb;
+  position: relative; }
+  .highlight-modal .highlight-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .highlight-modal .highlight-modal-wrapper .img-wrapper {
+      width: 75%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+      .highlight-modal .highlight-modal-wrapper .img-wrapper img {
+        max-width: 350px;
+        height: auto; }
+      .highlight-modal .highlight-modal-wrapper .img-wrapper p {
+        font-size: .75rem;
+        text-align: left;
+        max-width: 350px;
+        margin: 1rem auto;
+        line-height: 1rem; }
+      .highlight-modal .highlight-modal-wrapper .img-wrapper .share-icons {
+        text-align: center; }
+        .highlight-modal .highlight-modal-wrapper .img-wrapper .share-icons .fa {
+          font-size: 1.2rem;
+          padding: 10px; }
+  .highlight-modal h2 {
+    text-align: center;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    border: 3px solid white;
+    border-width: 3px 0;
+    margin-bottom: 0; }
+  .highlight-modal p {
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    margin: 1rem 2rem;
+    font-weight: 300; }
+  .highlight-modal .highlight-modal-button {
+    color: #fff;
+    text-decoration: none;
+    border: solid #fff 2px;
+    border-radius: 30px;
+    background-color: #70b3cb;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all ease 0.4s;
+    padding: 0.5rem 3rem;
+    margin: 1rem;
+    cursor: pointer; }
+    .highlight-modal .highlight-modal-button:hover {
+      color: #70b3cb;
+      border: solid #70b3cb 2px;
+      background-color: #fff; }
 
 .comment-modal {
-  background: #70b3cb; }
+  background: #70b3cb;
+  position: relative; }
+  .comment-modal .comment-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 100%;
+    height: 100%; }
+  .comment-modal h2 {
+    text-align: center;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    border: 3px solid white;
+    border-width: 3px 0;
+    margin-bottom: 0; }
+  .comment-modal .img-wrapper {
+    background: #70b3cb;
+    text-align: center; }
+    .comment-modal .img-wrapper .fa-commenting-o {
+      font-size: 8rem;
+      color: #fff; }
+  .comment-modal .comment-section-link {
+    color: #fff;
+    text-decoration: none;
+    border: solid #fff 2px;
+    border-radius: 30px;
+    background-color: #70b3cb;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all ease 0.4s;
+    padding: 0.5rem 3rem;
+    margin: 1rem; }
+    .comment-modal .comment-section-link:hover {
+      color: #70b3cb;
+      border: solid #70b3cb 2px;
+      background-color: #fff; }
 
 .download-modal {
-  background: #444444; }
+  background: #70b3cb;
+  position: relative; }
+  .download-modal .download-modal-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 100%;
+    height: 100%; }
+  .download-modal h2 {
+    text-align: center;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    border: 3px solid white;
+    border-width: 3px 0;
+    margin-bottom: 0; }
+  .download-modal p {
+    text-align: center;
+    max-width: 500px;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    margin: 2rem;
+    font-weight: 300; }
+  .download-modal .download-img {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px; }
+  .download-modal .download-page-link {
+    color: #fff;
+    text-decoration: none;
+    border: solid #fff 2px;
+    border-radius: 30px;
+    background-color: #70b3cb;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all ease 0.4s;
+    padding: 0.5rem 3rem;
+    margin: 1rem; }
+    .download-modal .download-page-link:hover {
+      color: #70b3cb;
+      border: solid #70b3cb 2px;
+      background-color: #fff; }
+
+@media (max-width: 900px) {
+  .highlight-modal .highlight-modal-wrapper .img-wrapper {
+    display: none; }
+    .highlight-modal .highlight-modal-wrapper .img-wrapper p {
+      max-width: 350px; }
+  .highlight-modal .highlight-modal-wrapper .highlight-modal-button {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    cursor: pointer; }
+  .download-modal .fa-download {
+    font-size: 1.5rem; }
+  .download-modal .download-page-link {
+    padding: 0.5rem 1rem;
+    margin: 0rem;
+    font-size: 1rem; }
+  .comment-modal .img-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+    .comment-modal .img-wrapper .fa-commenting-o {
+      font-size: 5rem; }
+  .comment-modal .comment-section-link {
+    padding: 0.5rem 1rem;
+    margin: 0rem;
+    margin-top: 20px; } }
+
+@media (max-width: 600px) {
+  .highlight-modal, .comment-modal, .download-modal {
+    width: 95%;
+    height: 95%; }
+    .highlight-modal h2, .comment-modal h2, .download-modal h2 {
+      font-size: 1.5rem; }
+  .highlight-modal .highlight-modal-wrapper .img-wrapper p {
+    max-width: 300px; }
+  .download-modal .fa-download {
+    font-size: 1rem; }
+  .download-modal .download-page-link {
+    padding: 0.5rem 1rem;
+    margin: 0rem; } }

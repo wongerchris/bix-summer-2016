@@ -5,13 +5,59 @@ Template Name: Bix-Book Template Page
 /**
  * The template for displaying all pages.
  *
- * @package RED_Starter_Theme
+ * @package Bix_Theme
  */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main">
+
+		<div class="bix-book-modal-overlay">
+			<div class="bix-book-modal-container">
+
+				<div class="unlock-download-modal">
+
+					<div class="unlock-download-modal-wrapper">
+					<i class="fa fa-close download-fa-close" aria-hidden="true"></i>
+
+			            <h2>Thank your for your interest in <strong>The Bix Book</strong></h2>
+			            <p>Please leave your email to unlock the download link:</p>
+
+			            <?php echo do_shortcode('[contact-form-7 id="131" title="Donate Later" html_class="wpcf7-form-download"]'); ?>
+
+			        </div>
+
+				</div>
+
+				<div class="start-download-modal">
+				
+					<div class="start-download-modal-wrapper">
+					<i class="fa fa-close download-fa-close" aria-hidden="true"></i>
+
+						<h2>Click the button bellow to start downloading <strong>The Bix Book</strong>:</h2>
+						<p>Download <span class="blue-highlight">The Bix Book</span> to your device</p>
+						<i class="fa fa-download" aria-hidden="true"></i>
+						<?php echo do_shortcode('[download id="132"]'); ?>
+					</div>
+
+				</div>
+
+				<div class="thankyou-modal">
+
+					<div class="thankyou-modal-wrapper">
+						<h2> Thanks for <span class="footer-orange">Downloading<span></h1>
+						
+						<p> Listening is having the person speaking experience being heard</p>
+						<p>- "Bix Bickson"</p>
+						<a class="thank-you-button" href="<?php echo get_page_link(11) ?>">Return to Homepage</a>
+
+		   			</div>
+
+				</div>
+
+			</div>
+		</div>
 
 		<section class="bix-book-banner">
 			<div class="bix-book-header">
@@ -25,7 +71,7 @@ get_header(); ?>
 			<section class="book-section1">
 			<img class="ribbon" src="<?php echo(get_template_directory_uri());?>/images/yellow-ribbon.svg" alt="yellow ribbon"/>
 			<h2 class="ribbon-heading">The Bix Book</h2>
-				
+
 				<?php if ( CFS()->get( 'bix_book_description' ) ) : ?>
 					<div class="book-section1-inside">
 						<?php echo CFS()->get( 'bix_book_description' ); ?>
@@ -86,13 +132,15 @@ get_header(); ?>
 							<?php echo CFS()->get( 'call_to_action' ); ?>
 						</p>
 					<?php endif; ?>
-					<p class="book-buy-light">Customize your contribution amount in  <i class="fa fa-cc-paypal"></i>
+					<p class="book-buy-light">Customize your contribution amount in  <img class="paypal" src="<?php echo(get_template_directory_uri());?>/images/paypal.png" alt="bix paypal"/>
 					</p>
 
 					<div class="donate-now">
-				     <a class="btn btn-donate" href="http://www.paypal.com">Donate Now</a>
-
-            <?php get_template_part( 'template-parts/content', 'modal' ); ?>
+				     <a class="btn btn-donate" href="<?php echo get_permalink( get_page_by_path( 'checkout' ) )?>">Donate Now</a>
+               
+            
+						 <p class="book-buy-light"> Download the Bix Book Now </p>
+						 <p class="btn donate-later-button"> Donate Later </p>
 			  	</div>
 				</div>
 		</section>

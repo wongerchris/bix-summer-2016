@@ -5,13 +5,13 @@ Template Name: About Template Page
 /**
  * The template for displaying all pages.
  *
- * @package RED_Starter_Theme
+ * @package Bix_Theme
  */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main" >
 
 		<section class="about-banner">
 			<div class="about-header">
@@ -22,9 +22,11 @@ get_header(); ?>
 		</section>
 
 		<div class="container">	
+
+		<!-- Author Section -->
 				<div class="author-section">
 					<div class="author-section-title">
-						<img src="<?php echo get_template_directory_uri() . "/images/about-bix-bickson.png"?>" alt="">
+						<img src="<?php echo get_template_directory_uri() . "/images/about-bix-bickson.jpg"?>" alt="">
 						<h2>About <span class="orange-highlight">Bix</span> Bickson</h2>
 					</div>
 					<div class="border-wrapper">
@@ -58,9 +60,10 @@ get_header(); ?>
 					</div>
 				</div>
 
+		<!-- Comapny Section -->
 				<div class="company-section">
 					<div class="company-section-title">
-						<img src="<?php echo get_template_directory_uri() . "/images/about-bickson2.png"?>" alt="">
+						<img src="<?php echo get_template_directory_uri() . "/images/about-bickson2.jpg"?>" alt="">
 						<h2>About <span class="orange-highlight">Bickson<sup>2</sup></span></h2>
 					</div>
 					<div class="border-wrapper">
@@ -80,21 +83,19 @@ get_header(); ?>
 						</div>
 						<div class="company-section-clients">
 							<h3>Clients inculde executives and their teams at:</h3>
+							<img src="<?php echo get_template_directory_uri() . "/images/bickson_client.jpg"?>" alt="Bix Bixson Client list"></a>
 						</div>
 						<div class="company-section-website">
 							<h3>Visit our site and learn more.</h3>
-							<a href="" class="website-img-link"><img src="<?php echo get_template_directory_uri() . "/images/bickson2-logo-black.png"?>" alt=""></a>
-							<a href="" class="website-text-link">www.bickson2.com</a>
+							<a href="http://bickson2.com/" target="_blank" class="website-img-link"><img src="<?php echo get_template_directory_uri() . "/images/bickson2-logo-black.png"?>" alt="Bix Bixson logo"></a>
+							<a href="http://bickson2.com/" target="_blank" class="website-text-link">www.bickson2.com</a>
 						</div>
 					</div>
-				</div>
-			
-			
-	</div>
+				</div>	
+		</div>
 
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
 
 <?php get_footer(); ?>

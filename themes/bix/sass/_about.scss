@@ -6,14 +6,18 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height:0;
 	.site-logo,.about-title,p{
-		display: none;
+		visibility: hidden;
+	    height: 0;
+	    width: 0;
+	    overflow: hidden;
 	}
 	.about-header{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: center;			
 	}
 }
 
@@ -23,7 +27,6 @@ h3 {
 }
 
 // author section
-
 	strong {
 		font-weight: bold;
 	}
@@ -33,7 +36,6 @@ h3 {
 	}
 
 	.author-section {
-		min-width: 320px;
 		display: block;
 		width: 100%;
 	}
@@ -50,7 +52,7 @@ h3 {
 			text-align: center;
 			font-family: $font__header;
 			color: $color__gray;
-			font-size: 18px;
+			font-size: 1.8rem;
 			text-transform: uppercase;
 		}
 	}
@@ -59,14 +61,13 @@ h3 {
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
-		img {
-			max-width: 400px;
-		}
+		
 		p {
 			font-family: $font__header;
 			margin: 1rem 2rem;
 			text-align: center;
 			width: 100%;
+			padding: 0 10px;
 		}
 		p:nth-child(2n) {
 			font-style: italic;
@@ -74,8 +75,9 @@ h3 {
 	}
 
 	.author-section-content-wrapper {
+		padding: 0 10px;
 		div {
-			margin: 0 2rem 1rem 2rem;
+			margin: 0;
 			h3 {
 				font-family: $font__header;
 				color: $color__orange;
@@ -99,10 +101,8 @@ h3 {
 // company section
 
 	.company-section {
-		min-width: 320px;
-		display: block;
 		width: 100%;
-		height: 100%;
+		height: auto;
 	}
 
 	.company-section-title {
@@ -122,14 +122,15 @@ h3 {
 			text-align: center;
 			font-family: $font__header;
 			color: $color__gray;
-			font-size: 18px;
+			font-size: 1.5rem;
 			text-transform: uppercase;
 		}
 	}
 
 	.company-section-content-wrapper {
+		padding: 0 10px;
 		div {
-			margin: 0 2rem 1rem 2rem;
+			margin: 0;
 			h3 {
 				font-family: $font__header;
 				color: $color__orange;
@@ -150,7 +151,7 @@ h3 {
 
 				li:before {   
 				    content: "";  
-				    border-color: transparent $color__orange;  
+				    border-color: transparent $color__gray;  
 				    border-style: solid;  
 				    border-width: 0.35em 0 0.35em 0.45em;  
 				    display: block;  
@@ -189,6 +190,9 @@ h3 {
 		flex-flow: column nowrap;
 		align-items: center;
 		margin: 1rem 2rem;
+		height: 230px;
+		margin-bottom: 100px;
+
 		h3 {
 			text-align: center;
 			font-family: $font__header;
@@ -211,48 +215,62 @@ h3 {
 
 	@media all and (min-width: 600px) {
 		
-		.about-banner{
+	.about-banner{
 	    background: url(../../images/about-page-banner-lg.jpg) no-repeat center left;
 	    background-size: cover;
 	    height: 70vh;
 	    overflow: hidden;
 	    position: relative;
-    .site-logo{
-      display: unset;
-      max-width: 250px;
-    }
-    .about-title{
-    	display: unset;
-      color:#fff;
-      border-bottom: solid 2px #fff;
-      border-top: solid 2px #fff;
-      font-size: 1.5rem;
-      padding:10px 0;
-      width: 250px;
-      text-transform: capitalize;
-      font-weight: 500;
-      text-align: center;
-    }
-    p{
-    	display: unset;
-    	color: #fff;
-    	font-weight: 300;
-    }
-  }
 
+	    .site-logo{
+		    visibility: visible;
+		    height: auto;
+		    width: 250px;
+		    overflow: hidden;
+			max-width: 250px;
+	    }
 
-
+    	.about-title{
+			visibility: visible;
+			height: auto;
+			width: 250px;
+			overflow: hidden;
+			max-width: 250px;
+			color:#fff;
+			border-bottom: solid 2px #fff;
+			border-top: solid 2px #fff;
+			font-size: 1.5rem;
+			padding:10px 0;
+			width: 250px;
+			text-transform: capitalize;
+			font-weight: 500;
+			text-align: center;
+	    }
+	    
+	    p{
+			visibility: visible;
+			height: auto;
+			width: 250px;
+			overflow: hidden;
+			max-width: 250px;
+			color: #fff;
+			font-weight: 300;
+			margin-top: 0;
+			text-align: center;
+	    }
+	}
 		.about-page-banner{
 			display: block;
 		}
 
 		.author-section, .company-section {
-			margin: 7rem 0;
+			margin: 50px 0;
 		}
 		.author-section-intro {
 		
 			img {
 				order: 2;
+				max-width: 400px;
 			}
 			p {
 				order: 1;
@@ -263,6 +281,7 @@ h3 {
 			position: relative;
 			background: url(../../images/about-bix-bickson.jpg);
 			background-size: cover;
+			height: 550px;
 			img {
 				display: block;
 			}
@@ -273,6 +292,7 @@ h3 {
 				background: rgba(255,255,255,0.8);
 			}
 		}
+
 		.border-wrapper {
 			padding: 0 4rem;
 			border: 1px solid rgba(0,0,0,0.3);

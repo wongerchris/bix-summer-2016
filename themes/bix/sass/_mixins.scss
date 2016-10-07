@@ -1,3 +1,7 @@
+/*--------------------------------------------------------------
+# Global Mixins
+--------------------------------------------------------------*/
+
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
 	font-size: ($sizeValue * 16) * 1px;
@@ -13,7 +17,7 @@
 
 //down arrow on banner-header images
 @mixin down-arrow {
-	border: solid #fff 2px;
+  border: solid #fff 2px;
   border-radius: 50%;
   width:50px;
   height:50px;
@@ -33,6 +37,7 @@
   background-color: $color__blue;
   font-weight: 500;
   font-size: 1.1rem;
+  transition: all ease 0.4s;
   &:hover{
     color: $color__blue;
     border: solid $color__blue 2px;
